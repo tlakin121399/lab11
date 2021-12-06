@@ -14,80 +14,83 @@ driver_data=driver_data.split('\n')
 def extract(lst):
     res=[]
     for el in lst:
-        sub=el.split('\t')
-        res.append(sub)
+    sub=el.split('\t')
+    res.append(sub)
     return(res)
 driver_data.pop(0)
 driver_data=(extract(driver_data))
-for entry in driver_data:
-    
-        
+
 class driver_liscense:
     def __init__(self, liscense_number, first_name, last_name, age, registered_voter):
-        self.liscence_number=liscence_number
-        self.first_name=first_name
-        self.last_name=last_name
-        self.age=age
-        self.register_voter=registered_voter
+        for liscence_number in driver_data:
+            self.liscence_number=liscence_number
+        for first_name in driver_data:
+            self.first_name=first_name
+        for last_name in driver_data:
+            self.last_name=last_name
+        for age in driver_data:
+            self.age=age
+        for registered_voter in driver_data:
+            self.register_voter=registered_voter
     def __eq__(self, other):
         if self.liscence_number == other.liscence_number:
-            print('')
+        print('')
         return True
     def __ne__(self, other):
         if self.liscence_number != other.liscence_number:
-            print('No Record Found')
+        print('No Record Found')
         return True
     def __str__(self):
-        pass
+        output='Driver info:\n'
+        output+=f'Liscence Number: {slef.liscence_number}\n'
+        output+=f'First Name: {self.first_name}\n'
+        output+=f'Last Name: {self.last_name}\n'
+        output+=f'Age: {self.age}\n'
+        output+=f'Registered Voter: {self.registered_voter}\n'
+        return output
 
 
 class DMV:
     def __init__(self, file):
-            self.file=file
+        self.file=file
     def run(self):
-            print('Select an option:')
-            print('1) Print all Drivers Info')
-            print('2) Print all young, unregistered voters')
-            print('3) Print drivers by first initial')
-            print('4) Print driver with id')
-            print('5) Quit')
-            choice=int(input('Enter your choice:'))
-            if choice==1:
-                __str__(self)
-                choice=input('Enter your choice:')
-            elif choice==2:
-                for age in age_list:
-                    Age=age_list(age)
-                    if age>'17' and age<'25':
-                        pass
-                        
-                choice=input('Enter your choice:')
-            elif choice==3:
-                first_letter_list=[]
-                letters=input('Enter letter:')
-                for letter in first_list:
-                    first_letter_list.append(letter)
-                driver_list.lower()
-                driver_list.sort()
-                print(driver_list)
-                choice=input('Enter your choice:')
-            elif choice==4:
-                __eq__(self, other)
-                __ne__(self, other)
-                choice=input('Enter your choice:')
-            elif choice==5:
-                print('Goodbye')
-                x=False
-            else:
-                print("Error: Invalid Input")
-                choice=input('Enter your choice:')
-
+        print('Select an option:')
+        print('1) Print all Drivers Info')
+        print('2) Print all young, unregistered voters')
+        print('3) Print drivers by first initial')
+        print('4) Print driver with id')
+        print('5) Quit')
+        choice=int(input('Enter your choice:'))
+        if choice==1:
+            __str__(self)
+            choice=input('Enter your choice:')
+        elif choice==2:     
+            choice=input('Enter your choice:')
+        elif choice==3:
+            driver_dict={x[1]:x[1:] for x in driver_data}
+            dict((k.lower(), v)or k,v in driver_dict.items())
+            print(driver_dict)
+            choice=input('Enter your choice:')
+        elif choice==4:
+            __eq__(self, other)
+            __ne__(self, other)
+            choice=input('Enter your choice:')
+        elif choice==5:
+            print('Goodbye')
+            x=False
+        else:
+            print("Error: Invalid Input")
+            choice=input('Enter your choice:')
+    
 def main():
     while x==True:
-            filename=input("Enter file name:")
-            myDMV=DMV(filename)
-            myDMV.run()
-    
+        filename=input("Enter file name:")
+        myDMV=DMV(filename)
+        myDMV.run()
+
 
 if __name__=="__main__":
     main()
+
+
+
